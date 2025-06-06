@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Para meu gato</title>
+  <style>
+    body {
+      background: #ffe6f0;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding-top: 100px;
+    }
+
+    .heart {
+      width: 100px;
+      height: 90px;
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      animation: pulse 1.5s infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      width: 100px;
+      height: 160px;
+      position: absolute;
+      background: red;
+      border-radius: 50px 50px 0 0;
+      top: 0;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 50px;
+    }
+
+    .heart::before {
+      transform: rotate(-45deg);
+      transform-origin: 0 100%;
+    }
+
+    .heart::after {
+      transform: rotate(45deg);
+      transform-origin: 100% 100%;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    .message {
+      margin-top: 30px;
+      font-size: 24px;
+      color: #b30059;
+      display: none;
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 14px;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Oi meu bem, clica ai</h1>
+  <div class="heart" onclick="showMessage()"></div>
+  <p class="message" id="msg">Que você possa melhorar e ficar calmo meu amor, nosso dia vai ser ótimo! </p>
+
+  <footer>Com amor, de Didi linda ❤️</footer>
+
+  <script>
+    function showMessage() {
+      var msg = document.getElementById("msg");
+      msg.style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
