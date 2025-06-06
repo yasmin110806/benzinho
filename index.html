@@ -2,85 +2,77 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Para meu gato</title>
+  <title>Para Meu Gato ❤️</title>
   <style>
     body {
-      background: #ffe6f0;
-      font-family: 'Arial', sans-serif;
+      margin: 0;
+      background: #fff0f5;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       text-align: center;
-      padding-top: 100px;
     }
 
     .heart {
-      width: 100px;
-      height: 90px;
-      position: relative;
-      display: inline-block;
+      font-size: 100px;
+      animation: pulse 1.2s infinite;
       cursor: pointer;
-      animation: pulse 1.5s infinite;
-    }
-
-    .heart::before,
-    .heart::after {
-      content: "";
-      width: 100px;
-      height: 160px;
-      position: absolute;
-      background: red;
-      border-radius: 50px 50px 0 0;
-      top: 0;
-      left: 0;
-    }
-
-    .heart::after {
-      left: 50px;
-    }
-
-    .heart::before {
-      transform: rotate(-45deg);
-      transform-origin: 0 100%;
-    }
-
-    .heart::after {
-      transform: rotate(45deg);
-      transform-origin: 100% 100%;
+      user-select: none;
+      transition: transform 0.2s;
     }
 
     @keyframes pulse {
       0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
+      50% { transform: scale(1.2); }
       100% { transform: scale(1); }
     }
 
     .message {
       margin-top: 30px;
       font-size: 24px;
-      color: #b30059;
+      color: #c2185b;
       display: none;
-      max-width: 90%;
-      margin-left: auto;
-      margin-right: auto;
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     footer {
-      margin-top: 60px;
+      position: absolute;
+      bottom: 15px;
       font-size: 14px;
-      color: #999;
+      color: #888;
     }
   </style>
 </head>
 <body>
 
-  <h1>Oi meu bem, clica ai</h1>
-  <div class="heart" onclick="showMessage()"></div>
-  <p class="message" id="msg">Que você possa melhorar e ficar calmo meu amor, nosso dia vai ser ótimo! </p>
+  <h1>Oi meu bem, clica no coração ❤️</h1>
+  <div class="heart" onclick="mostrarFrase()">❤️</div>
+  <div class="message" id="mensagem"></div>
 
-  <footer>Com amor, de Didi linda ❤️</footer>
+  <footer>Com amor, de Didi linda</footer>
 
   <script>
-    function showMessage() {
-      var msg = document.getElementById("msg");
-      msg.style.display = "block";
+    const frases = [
+      "Eu te amo, benzinho",
+      "Meu lindo",
+      "Amor da minha vida",
+      "Festa junina hoje",
+      "Que você possa melhorar e ficar calmo meu amor, nosso dia vai ser ótimo"
+    ];
+
+    function mostrarFrase() {
+      const mensagem = document.getElementById('mensagem');
+      const frase = frases[Math.floor(Math.random() * frases.length)];
+      mensagem.innerText = frase;
+      mensagem.style.display = 'block';
     }
   </script>
 
